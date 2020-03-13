@@ -31,7 +31,8 @@ class ContentTypeJsonHeaderPluginTest extends TestCase
 
         $eventDispatcher = new EventDispatcher();
         $eventDispatcher->addSubscriber(new ContentTypeJsonHeaderPlugin());
-        $eventDispatcher->dispatch(TmdbEvents::BEFORE_REQUEST, $event);
+        // $eventDispatcher->dispatch(TmdbEvents::BEFORE_REQUEST, $event);
+        $eventDispatcher->dispatch($event, TmdbEvents::BEFORE_REQUEST);
 
         $this->assertEquals('application/json', (string) $event->getRequest()->getHeaders()->get('Content-Type'));
     }

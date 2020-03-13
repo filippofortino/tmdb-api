@@ -31,7 +31,8 @@ class LanguageFilterPluginTest extends TestCase
 
         $eventDispatcher = new EventDispatcher();
         $eventDispatcher->addSubscriber(new LanguageFilterPlugin('nl'));
-        $eventDispatcher->dispatch(TmdbEvents::BEFORE_REQUEST, $event);
+        // $eventDispatcher->dispatch(TmdbEvents::BEFORE_REQUEST, $event);
+        $eventDispatcher->dispatch($event, TmdbEvents::BEFORE_REQUEST);
 
         $this->assertEquals('nl', (string) $event->getRequest()->getParameters()->get('language'));
     }

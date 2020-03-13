@@ -12,7 +12,8 @@
  */
 namespace Tmdb\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+//use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 use Tmdb\HttpClient\Request;
 use Tmdb\HttpClient\Response;
 use Tmdb\Model\AbstractModel;
