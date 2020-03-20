@@ -45,6 +45,11 @@ class Credit extends AbstractModel
      * @var string
      */
     private $originalTitle;
+    
+    /**
+     * @var int
+     */
+    private $popularity;
 
     /**
      * @var string
@@ -107,6 +112,7 @@ class Credit extends AbstractModel
         'credit_id',
         'id',
         'original_title',
+        'popularity',
         'poster_path',
         'release_date',
         'title',
@@ -212,6 +218,25 @@ class Credit extends AbstractModel
     public function getOriginalTitle()
     {
         return $this->originalTitle;
+    }
+    
+    /**
+     * @param  int $popularity
+     * @return $this
+     */
+    public function setPopularity($popularity)
+    {
+        $this->popularity = $popularity;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPopularity()
+    {
+        return $this->popularity;
     }
 
     /**
