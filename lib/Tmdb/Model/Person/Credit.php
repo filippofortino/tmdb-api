@@ -284,7 +284,15 @@ class Credit extends AbstractModel
     public function setReleaseDate($releaseDate)
     {
         if (!$releaseDate instanceof \DateTime) {
-            $releaseDate = new \DateTime($releaseDate);
+            // When the release date is not available
+            // TMDb might return the field 'release_date'
+            // as an empty string or not returning it
+            // at all. In both cases we set the
+            // $releaseDate property as null.
+            if($releaseDate)
+                $releaseDate = new \DateTime($releaseDate);
+            else
+                $releaseDate = null;
         }
 
         $this->releaseDate = $releaseDate;
